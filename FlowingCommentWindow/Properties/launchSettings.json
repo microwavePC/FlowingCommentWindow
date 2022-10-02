@@ -1,0 +1,24 @@
+{
+  "profiles": {
+    "フォント指定なし、サイズ指定なし": {
+      "commandName": "Project",
+      "commandLineArgs": "-c \"デバッグ用コメント\""
+    },
+    "フォント指定あり、サイズ指定なし": {
+      "commandName": "Project",
+      "commandLineArgs": "-f \"メイリオ\" -c \"デバッグ用コメント\""
+    },
+    "フォント指定なし、サイズ指定あり": {
+      "commandName": "Project",
+      "commandLineArgs": "-s 256 -c \"デバッグ用コメント\""
+    },
+    "フォント指定あり、サイズ指定あり": {
+      "commandName": "Project",
+      "commandLineArgs": "-f \"メイリオ\" -s 256 -c \"デバッグ用コメント\""
+    },
+    "コメントパラメーターあり": {
+      "commandName": "Project",
+      "commandLineArgs": "-f \"Times New Roman\" -s 128 -c \"This is debug comment.\\?pos=naka&size=small&speed=fast&color=blue\""
+    }
+  }
+}

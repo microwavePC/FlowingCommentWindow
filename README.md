@@ -72,5 +72,6 @@ FlowingCommentWindow.slnをVisual Studioで開き、Releaseビルドを行って
 
 **コマンドの例**
 
-`.\FlowingCommentWindow.exe -c "これはサンプルのコメントです。\?font=メイリオ&color=red&size=big"`
-
+```powershell
+ .\FlowingCommentWindow.exe -c "これはサンプルのコメントです。\?font=メイリオ&color=red&size=big"
+```

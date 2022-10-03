@@ -42,7 +42,12 @@ namespace FlowingCommentWindow
             #region コメント内で指定されたオプションをパース
 
             string[] commentParts = wholeComment.Split("\\?");
-            string commentParam = commentParts[1];
+
+            string commentParam = String.Empty;
+            if (commentParts.Length >= 2)
+            {
+                commentParam = commentParts[1];
+            }
             Uri dummyUri = new Uri("http://www.example.com?" + commentParam);
             NameValueCollection qParams = HttpUtility.ParseQueryString(dummyUri.Query);
 

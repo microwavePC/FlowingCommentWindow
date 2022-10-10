@@ -141,7 +141,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:FlowingCommentWindow"
         "ProductCode" = "8:{F042EE8D-4A83-4BED-8C87-54E0F75CCB57}"
-        "PackageCode" = "8:{3F9E8E94-C981-4373-A6AE-D8FF4718EB24}"
+        "PackageCode" = "8:{1E6E38FB-8508-42B6-9313-6A3062A9059F}"
         "UpgradeCode" = "8:{863BFE4A-BAC9-41B4-9DDC-527AE3F9EB99}"
         "AspNetVersion" = "8:"
         "RestartWWWService" = "11:FALSE"
@@ -164,7 +164,7 @@
         "UseSystemSearchPath" = "11:TRUE"
         "TargetPlatform" = "3:1"
         "PreBuildEvent" = "8:"
-        "PostBuildEvent" = "8:setx PATH=%PATH%;C:\\Program Files\\microwavePC\\FlowingCommentWindow"
+        "PostBuildEvent" = "8:"
         "RunPostBuildEvent" = "3:0"
         }
         "Registry"

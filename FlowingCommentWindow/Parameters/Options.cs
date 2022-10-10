@@ -1,9 +1,4 @@
 ﻿using CommandLine;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace FlowingCommentWindow.Parameters
 {
@@ -14,6 +9,9 @@ namespace FlowingCommentWindow.Parameters
 
         [Option('s', "default-font-size", Required = false, HelpText = "デフォルトのフォントサイズ。このパラメーターで指定された数値が標準のフォントサイズとなる。")]
         public int DefaultFontSize { get; set; } = 108;
+
+        [Option('m', "default-margin-color", Required =false, HelpText = "デフォルトの縁の色。")]
+        public string DefaultMarginColor { get; set; } = string.Empty; 
 
         [Option('c', "comment", Required = true, HelpText = "コメント本体。")]
         public string Comment { get; set; } = "<コメント文字列がプログラムに渡されていません。>";

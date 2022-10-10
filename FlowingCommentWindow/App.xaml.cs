@@ -4,6 +4,7 @@ using FlowingCommentWindow.Extensions;
 using FlowingCommentWindow.Parameters;
 using System;
 using System.Collections.Specialized;
+using System.Drawing;
 using System.Web;
 using System.Windows;
 using System.Windows.Media;
@@ -35,6 +36,7 @@ namespace FlowingCommentWindow
 
             string defaultFont = options.DefaultFont;
             int defaultFontSize = options.DefaultFontSize;
+            string defaultMarginColor = options.DefaultMarginColor;
             string wholeComment = options.Comment;
 
             #endregion
@@ -88,12 +90,25 @@ namespace FlowingCommentWindow
                 }
             }
 
+            // コメントの縁の色
+            Brush? marginColor = null;
+            if (!string.IsNullOrWhiteSpace(defaultMarginColor))
+            {
+                string colStr = defaultMarginColor.ToTitleCase()!;
+                var bConv = new BrushConverter();
+                SolidColorBrush? brush = bConv.ConvertFromString(colStr) as SolidColorBrush;
+                if (brush != null)
+                {
+                    marginColor = brush;
+                }
+            }
+
             // コメント本体
             string comment = commentParts[0];
 
             #endregion
 
-            var commentWindow = new MainWindow(font, defaultFontSize, size, color, pos, speed, comment);
+            var commentWindow = new MainWindow(font, defaultFontSize, size, color, marginColor, pos, speed, comment);
             commentWindow.Show();
         }
     }

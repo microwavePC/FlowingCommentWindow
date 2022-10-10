@@ -1,6 +1,10 @@
 # FlowingCommentWindow
 
+
+
 ## これはどういうアプリケーション？
+
+
 
 ### アプリケーションの概要
 
@@ -18,6 +22,8 @@
 
 Windows11にて動作することを確認してあります。
 
+
+
 #### コンパイルに必要な環境
 
 * Visual Studio 2022（またはそれ以降のバージョン）
@@ -25,11 +31,13 @@ Windows11にて動作することを確認してあります。
 
 
 
-## 使い方
+## ソースコードからコンパイルして使う場合の使い方
+
+
 
 ### コンパイル ＆ 実行用EXEファイルの生成方法
 
-FlowingCommentWindow.slnをVisual Studioで開き、Releaseビルドを行ってください。  
+ソリューション「FlowingCommentWindow.sln」をVisual Studioで開き、プロジェクト「FlowingCommentWindow」をReleaseビルドしてください。  
 ビルドにより、フォルダ「FlowingCommentWindow\FlowingCommentWindow\bin\Release\net6.0-windows」が生成されます。   
 上記フォルダに含まれる「FlowingCommentWindow.exe」をPowerShellのコマンドラインから実行することで、画面上にコメントを流すことができます。
 
@@ -39,16 +47,17 @@ FlowingCommentWindow.slnをVisual Studioで開き、Releaseビルドを行って
 
 以下のオプションを指定してEXEを実行します。
 
-| オプション名<br />（省略形） | オプション名<br />（非省略形） | 設定可能な値                 | オプションの意味                                             | 値の例                           | 必須 |
-| ---------------------------- | ------------------------------ | ---------------------------- | ------------------------------------------------------------ | -------------------------------- | ---- |
-| -c                           | --comment                      | 任意の文字列                 | このオプションで指定された文字列がコメントとして流れます。  <br />後述する方法で修飾を入れ込むことが可能です。 | "これはサンプルのコメントです。" | ○    |
-| -f                           | --default-font                 | フォントとして存在する文字列 | コメント内でフォントの指定がなかった場合は、このオプションで指定されたコメントが使用されます。 | "メイリオ"                       |      |
-| -s                           | --default-font-size            | 正の数値                     | このオプションで指定された数値が標準のフォントサイズとなります。  <br />指定がなかった場合、標準のフォントサイズは108ptとなります。 | 64                               |      |
+| オプション名<br />（省略形） | オプション名<br />（非省略形） | 設定可能な値                                         | オプションの意味                                             | 値の例                           | 必須 |
+| ---------------------------- | ------------------------------ | ---------------------------------------------------- | ------------------------------------------------------------ | -------------------------------- | ---- |
+| -c                           | --comment                      | 任意の文字列                                         | このオプションで指定された文字列がコメントとして流れます。  <br />後述する方法で修飾を入れ込むことが可能です。 | "これはサンプルのコメントです。" | ○    |
+| -f                           | --default-font                 | フォントとして存在する文字列                         | コメント内でフォントの指定がなかった場合は、このオプションで指定されたコメントが使用されます。 | "メイリオ"                       |      |
+| -s                           | --default-font-size            | 正の数値                                             | このオプションで指定された数値が標準のフォントサイズとなります。  <br />指定がなかった場合、標準のフォントサイズは108ptとなります。 | 64                               |      |
+| -m                           | --default-margin-color         | HTMLカラーコードの色名として割り当てられている文字列 | このオプションで指定された色がコメント内の各文字の縁の色となります。 | "green"                          |      |
 
 **コマンドの例**
 
 ```powershell
- .\FlowingCommentWindow.exe -f "Times New Roman" -s 128 -c "これはサンプルのコメントです。"
+ .\FlowingCommentWindow.exe -f "Times New Roman" -s 128 -m "green" -c "これはサンプルのコメントです。"
 ```
 
 
@@ -75,3 +84,28 @@ FlowingCommentWindow.slnをVisual Studioで開き、Releaseビルドを行って
 ```powershell
  .\FlowingCommentWindow.exe -c "これはサンプルのコメントです。\?font=メイリオ&color=red&size=big"
 ```
+
+
+
+## インストーラーからインストールして使用する場合の使い方
+
+
+
+### インストーラーの生成方法
+
+ソリューション「FlowingCommentWindow.sln」をVisual Studioで開き、プロジェクト「FlowingCommentWindowInstaller」をReleaseビルドしてください。  
+ビルドにより、フォルダ「FlowingCommentWindow\FlowingCommentWindowInstaller\Release」が生成されます。   
+上記フォルダに含まれる「FlowingCommentWindowInstaller.msi」を実行することで、実行端末上にFlowingCommentWindowをインストールすることができます。
+
+
+
+### インストールしたアプリケーションの実行方法
+
+インストール先に設置されたFlowingCommentWindow.exeをコマンドラインから実行します。実行時の各オプションは、ビルド生成物を実行する場合と同じです。
+
+**コマンドの例**
+
+```powershell
+& 'C:\Program Files\microwavePC\FlowingCommentWindow\FlowingCommentWindow.exe' -c "これはサンプルのコメントです。\?font=メイリオ&color=red&size=big"
+```
+

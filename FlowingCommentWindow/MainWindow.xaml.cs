@@ -1,4 +1,5 @@
-﻿using FlowingCommentWindow.Enums;
+﻿using FlowingCommentWindow.Components;
+using FlowingCommentWindow.Enums;
 using System;
 using System.ComponentModel;
 using System.Threading;
@@ -22,7 +23,7 @@ namespace FlowingCommentWindow
         int _speed = BaseSpeed;
         Pos? _position = null;
 
-        public MainWindow(string font, int defaultFontSize, FontSize size, Brush color, Pos position, Speed speed, string comment)
+        public MainWindow(string font, int defaultFontSize, FontSize size, Brush color, Brush? marginColor, Pos position, Speed speed, string comment)
         {
             InitializeComponent();
 
@@ -60,6 +61,16 @@ namespace FlowingCommentWindow
 
             // コメント色設定
             this.CommentLabel.Foreground = color;
+
+            // コメント縁色設定
+            if (marginColor != null)
+            {
+                this.CommentLabel.SetValue(Adorning.StrokeProperty, marginColor!);
+            }
+            else
+            {
+                this.CommentLabel.SetValue(Adorning.StrokeThicknessProperty, 0.0);
+            }
 
             // スピード設定
             switch (speed)

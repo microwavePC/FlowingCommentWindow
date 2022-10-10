@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FlowingCommentWindow"
+        xmlns:components="clr-namespace:FlowingCommentWindow.Components"
         mc:Ignorable="d"
         WindowStyle="None"
         AllowsTransparency="True"
@@ -30,6 +31,7 @@
                    Height="Auto"
                    Width="Auto"
                    IsEnabled="False"
-                   Focusable="False"/>
+                   Focusable="False"
+                   components:Adorning.StrokeThickness="3.0"/>
     </Grid>
 </Window>

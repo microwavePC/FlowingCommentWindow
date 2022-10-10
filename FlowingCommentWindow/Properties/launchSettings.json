@@ -19,6 +19,10 @@
     "コメントパラメーターあり": {
       "commandName": "Project",
       "commandLineArgs": "-f \"Times New Roman\" -s 128 -c \"This is debug comment.\\?pos=naka&size=small&speed=fast&color=blue\""
+    },
+    "縁色指定あり、サイズ指定あり": {
+      "commandName": "Project",
+      "commandLineArgs": "-m \"green\" -s 256 -c \"デバッグ用コメント\""
     }
   }
 }

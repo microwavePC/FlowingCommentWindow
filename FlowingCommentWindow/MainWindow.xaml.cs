@@ -27,8 +27,8 @@ namespace FlowingCommentWindow
         {
             InitializeComponent();
 
-            this.Left = (int)SystemParameters.PrimaryScreenWidth;
-            this.Top = _random.Next(0, (int)(SystemParameters.PrimaryScreenHeight - _fontSize));
+            this.Left = (int)SystemParameters.VirtualScreenWidth;
+            this.Top = _random.Next(0, (int)(SystemParameters.VirtualScreenHeight - _fontSize));
 
             _defaultFontSize = defaultFontSize;
 
@@ -113,14 +113,14 @@ namespace FlowingCommentWindow
                     textTop = verticalMargin;
                     break;
                 case Pos.Naka:
-                    textTop = SystemParameters.PrimaryScreenHeight / 2 - this.ActualHeight / 2;
+                    textTop = SystemParameters.VirtualScreenHeight / 2 - this.ActualHeight / 2;
                     break;
                 case Pos.Shita:
-                    textTop = SystemParameters.PrimaryScreenHeight - this.ActualHeight - verticalMargin;
+                    textTop = SystemParameters.VirtualScreenHeight - this.ActualHeight - verticalMargin;
                     break;
                 case Pos.Random:
                 default:
-                    textTop = _random.Next(0, (int)(SystemParameters.PrimaryScreenHeight - this.ActualHeight));
+                    textTop = _random.Next(0, (int)(SystemParameters.VirtualScreenHeight - this.ActualHeight));
                     break;
             }
             this.Top = textTop;

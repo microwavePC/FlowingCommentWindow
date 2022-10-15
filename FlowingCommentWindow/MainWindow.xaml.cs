@@ -16,11 +16,11 @@ namespace FlowingCommentWindow
         bool _isShown = false;
         Random _random = new Random();
 
-        private const int BaseSpeed = 16;
+        readonly int _baseSpeed = 16;
 
         int _defaultFontSize = 108;
         int _fontSize = 108;
-        int _speed = BaseSpeed;
+        int _speed = 16;
         Pos? _position = null;
 
         public MainWindow(string font, int defaultFontSize, FontSize size, Brush color, Brush? marginColor, Pos position, Speed speed, string comment)
@@ -31,6 +31,10 @@ namespace FlowingCommentWindow
             this.Top = _random.Next(0, (int)(SystemParameters.VirtualScreenHeight - _fontSize));
 
             _defaultFontSize = defaultFontSize;
+
+            // モニターの解像度に応じてコメント移動のベース速度を調整
+            double monitorFullWidth = SystemParameters.VirtualScreenWidth;
+            _baseSpeed = (int)(monitorFullWidth / 136);
 
             // コメント文章設定
             this.CommentLabel.Text = comment;
@@ -76,16 +80,16 @@ namespace FlowingCommentWindow
             switch (speed)
             {
                 case Speed.Fast:
-                    _speed = BaseSpeed * 2;
+                    _speed = _baseSpeed * 2;
                     break;
                 case Speed.Medium:
-                    _speed = BaseSpeed;
+                    _speed = _baseSpeed;
                     break;
                 case Speed.Slow:
-                    _speed = BaseSpeed / 2;
+                    _speed = _baseSpeed / 2;
                     break;
                 default:
-                    _speed = BaseSpeed;
+                    _speed = _baseSpeed;
                     break;
             }
 
